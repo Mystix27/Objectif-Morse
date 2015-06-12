@@ -1,0 +1,1070 @@
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/lato/Lato-Regular.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/lato/Lato-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/lato/Lato-Regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/lato/Lato-Regular.ttf') format('truetype'); 
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+@font-face {
+    font-family: 'morse';
+    src: url('../fonts/morse/morse.ttf') format('truetype'); 
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
+body{
+	margin: 0 auto;
+}
+
+p{
+	font-family: 'Lato';
+	font-size: 14px;
+}
+
+#container{
+	max-width: 1024px;
+	max-height: 600px;
+}
+
+#header {
+	width: 100%;
+	height: 134px;
+}
+
+
+
+#div-prp{
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+
+#contenu{
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+
+h2{
+	font-family: 'Lato';
+	font-size: 20px;
+	color: #495058;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------- Accueil ------------------- */ 
+
+#slideAccueil{
+    /*background-image:url("img/cac.jpg");*/
+    background-repeat:no-repeat;    
+    background-position:right top;     
+}
+
+.containerSlide {
+	width: 100%;
+	height: 100%;
+}
+
+#accueilHaut {
+	width: 100%;
+	height: 35%;
+	/*background: rgba(255, 119, 119, 0.35);*/
+	float: left;
+}
+
+#accueilBas {
+	width: 100%;
+	height: 65%;
+	/* background: rgba(138, 193, 146, 0.66);*/
+	float: left;
+}
+
+.text-align-all{
+	text-align: justify;
+	padding-left: 25px;
+	padding-right: 25px;
+	padding-top: 15px;
+}
+
+.choixAcc{
+	float: left;
+	height: 100%;
+}
+
+#accIntro{
+	width: 33%;
+}
+
+#appIntro{
+	width: 33%;
+}
+
+#exIntro{
+	width: 34%;
+}
+
+.titreAcc{
+	width: 86%;
+	text-align: center;
+	height: 25px;
+	color: white;
+	padding-top: 8px;
+	margin-left: 25px;
+	margin-top: 20px;
+	background-color: #495057;
+	float: left;
+}
+
+.txtAcc{
+	width: 86%;
+	margin-left: 25px;
+	margin-top: 10px;
+	float: left;
+	text-align: justify;
+}
+
+.btnAcc{
+	text-align: center;
+	float: left;
+	color: white;
+	font-size: 12px;
+	padding-top: 8px;
+	height: 22px;
+	margin-left: 49%;
+	background-color: #495057;
+	width: 44%;
+	margin-top: 43px; /* dépendra du texte */
+	cursor:pointer;
+
+}
+
+.btnAcc2 {
+  text-align: center;
+  float: left;
+  color: white;
+  font-size: 12px;
+  padding-top: 8px;
+  height: 22px;
+  margin-left: 49%;
+  background-color: #495057;
+  width: 44%;
+  margin-top: 60px;
+  cursor: pointer;
+}
+
+.btnAcc3 {
+  text-align: center;
+  float: left;
+  color: white;
+  font-size: 12px;
+  padding-top: 8px;
+  height: 22px;
+  margin-left: 49%;
+  background-color: #495057;
+  width: 44%;
+  margin-top: 60px;
+  cursor: pointer;
+}
+
+.btnAcc:hover{
+	background-color: #838892;
+}
+
+.btnAcc2:hover{
+	background-color: #838892;
+}
+
+.btnAcc3:hover{
+	background-color: #838892;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------- Module 1 ------------------- */
+#slidechap1{
+    /*background-image:url("img/chap1.jpg");*/
+    background-repeat:no-repeat;    
+    background-position:right top;    
+}
+
+
+.titreSlide {
+    text-align:center;
+    width: 100%;
+    height: 15%;
+    /* background-color: rgba(255, 119, 119, 0.35); */
+}
+
+.titreChap1 {
+	font-size: 38px;
+	color: #39393B;
+}
+
+.txtChap1{
+	padding: 5px 25px 10px 25px;
+	text-align: justify;
+}
+
+#chap1Part1{
+	width: 50%;
+	height: 75%;
+	float: left;
+	/* background:rgba(138, 193, 146, 0.66); */
+}
+
+#saMorse{
+	width: 35%;
+	float: right;
+	padding-left: 10px;
+}
+
+#chap1Part2{
+	width: 50%;
+	height: 75%;
+	float: left;
+	/* background:rgba(79, 71, 172, 0.35); */
+}
+
+#appareil{
+	width: 57%;
+	float: right;
+	padding-left: 10px;
+}
+
+.divBtn{
+	width: 100%;
+	height: 10%;
+	float: left;
+	/* background:rgba(0, 0, 0, 0.5); */ 
+}
+
+.btnSuivant {
+	float: right;
+	margin-right: 4%;
+	height: 28px;
+	padding-top: 10px;
+	padding-left: 15px;
+	width: 180px;
+	color: white;
+	background-color: #495057;
+	background-image:url("../img/chevron-right.png");    
+	background-repeat:no-repeat;    
+    background-position:right;
+    cursor:pointer;
+}
+
+.btnSuivant:hover{
+	background-color: #838892;
+}
+
+.btnPrecedent {
+	float: left;
+	margin-left: 4%;
+	height: 28px;
+	padding-top: 10px;
+	padding-left: 40px;
+	width: 180px;
+	color: white;
+	background-color: #495057;
+	background-image:url("../img/chevron-left.png");    
+	background-repeat:no-repeat;    
+    background-position:left;
+    cursor:pointer;
+}
+
+.btnPrecedent:hover{
+	background-color: #838892;
+}
+
+#slidechap2{
+    /*background-image:url("img/chap2.jpg");*/
+    background-repeat:no-repeat;    
+    background-position:right top;    
+}
+
+#chap2Part1{
+	width: 100%;
+	height: 35%;
+	/* background:rgba(138, 193, 146, 0.66); */ 
+}
+
+#cMorse{
+	width: 25%;
+	float: left;
+	padding-right: 10px;
+}
+
+#aMorse{
+	width: 35%;
+	float: right;
+	padding-left: 10px;
+}
+
+#chap2Part2{
+	width: 100%;
+	height: 40%;
+	/* background:rgba(79, 71, 172, 0.35); */
+}
+
+
+
+#slidechap3{
+    /* background-image:url("img/cchap3.jpg"); */
+    background-repeat:no-repeat;    
+    background-position:right top;    
+}
+
+#chap3Part1{
+	width: 100%;
+	height: 15%;
+	/*background-color: rgba(138, 193, 146, 0.66);*/
+}
+
+.titreH2Chap1{
+	padding-left: 15px;
+	float: left;
+	
+}
+
+.exTr{
+	padding-left: 5px;
+	padding-top: 5px;
+	float: left;
+}
+
+.exTrMorse{
+	padding-left: 8px;
+	padding-top: 10px;
+	font-size: 20px;
+	float: left;
+	font-family: 'morse';
+}
+
+
+#chap3Part2{
+	width: 100%;
+	height: 10%;
+	padding-top: 5px;
+	/* background-color:rgba(79, 71, 172, 0.35); */
+}
+
+.audioPart{
+	padding-top: 0px;
+}
+
+#mediaAudio{
+	padding-left: 10px;
+}
+
+#chap3Part3{
+	width: 100%;
+	height: 50%;
+	/* background-color: rgba(255, 119, 119, 0.35); */
+}
+
+.txtPart3{
+	width: 95%;
+	margin-left: 25px;
+	margin-top: 10px;
+	float: left;
+	text-align: justify;
+}
+
+
+
+
+
+
+
+/* ------------------- Application ------------------- */
+
+#slideapp1{
+    /* background-image:url("img/capp1.jpg"); */
+    background-repeat:no-repeat;    
+    background-position:right top;   
+}
+
+#app1Part1{
+	width: 100%;
+	height: 35%;
+	/* background-color: rgba(79, 71, 172, 0.35) */ 
+}
+
+.btnCommencer {
+	float: left;
+	margin-right: 4%;
+	height: 26px;
+	padding-top: 8px;
+	margin-left: 34%;
+	width: 333px;
+	text-align: center;
+	color: white;
+	background-color: #495057;
+    cursor:pointer;
+}
+
+.btnCommencer:hover{
+	background-color: #838892;
+}
+
+.titreH2app1{
+	padding-left: 40px;
+	float: left;
+	
+}
+
+#txtApp1{
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 30px;
+	text-align: justify;
+	
+}
+
+#txtApp2{
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-top: 10px;
+	text-align: justify;
+}
+
+#app1Part2{
+	width: 50%;
+	height: 40%;
+	/* background-color: rgba(0, 0, 0, 0.5);*/
+	float: left;
+}
+
+#app1Part3{
+	width: 50%;
+	height: 40%;
+	/* background-color: rgba(138, 193, 146, 0.66); */
+	float: left;
+}
+
+
+#slideapp2{
+    /* background-image:url("img/capp2.jpg"); */
+    background-repeat:no-repeat;    
+    background-position:right top;   
+}
+
+.appAudio{
+	width: 100%;
+	height: 25%;
+	/* background: rgba(138, 193, 146, 0.66); */
+	
+}
+
+.appAudio1{
+	width: 50%;
+	height: 25%;
+	/* background: rgba(138, 193, 146, 0.66); */
+	float: left;
+}
+
+.exAudio1{
+	float: left;
+	padding-top: 15px;
+	padding-right: 45px;
+	padding-left: 40px;
+	
+}
+
+.exAudio2{
+	float: left;
+	padding-top: 60px;
+	padding-right: 45px;
+	padding-left: 40px;
+	
+}
+
+#app2Part1{
+	width: 100%;
+	height: 30%;
+	float: left;
+	/* background: rgba(79, 71, 172, 0.35);*/
+}
+
+#app2Part2{
+	width: 40%;
+	height: 30%;
+	float: left;
+	/* background: rgba(79, 71, 172, 0.35);*/
+}
+
+#app2Part3{
+	width: 60%;
+	height: 30%;
+	float: left;
+	/* background: rgba(79, 71, 172, 0.35);*/
+}
+
+#app2PartRok{
+	width: 60%;
+	height: 30%;
+	float: left;
+	/* background: rgba(79, 71, 172, 0.35);*/
+}
+
+.reponse{
+	padding-left: 10px;
+	margin-left: 20px;
+	margin-top: 10px;
+	padding-top: 10px;
+	width: 300px;
+	height: 100px;
+	float: left;
+}
+
+.btnValider {
+	float: left;
+	margin-left: 6%;
+	height: 30px;
+	margin-top: 13%;
+	padding-top: 8px;
+	width: 150px;
+	font-size: 18px;
+	text-align: center;
+	color: white;
+	background-color: #495057;
+	cursor: pointer;
+}
+
+.btnValider:hover{
+	background-color: #838892;
+}
+
+.resultat{
+	width: 400px;
+	height: 250px;
+	margin-left: 28%;
+	margin-top: 10%;
+	background-color: white;
+	border:1px solid #676767;
+}
+
+#titreFenetre{
+	width: 100%;
+	height: 40px;
+	background: rgb(73, 80, 87);
+}
+
+#contenuFenetre{
+	width: 100%;
+	height: 210px;
+}
+
+.titreFenetre{
+	font-size: 30px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+
+.statutEx{
+
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	font-size: 26px;
+	font-weight: bold;
+}
+
+.contenuFenetre{
+	font-size: 18px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 50px;
+	
+}
+
+.btnRessayer{
+	height: 30px;
+	padding-top: 8px;
+	width: 150px;
+	font-size: 18px;
+	text-align: center;
+	color: white;
+	background-color: #495057;
+	cursor: pointer;
+	margin-left: 125px;
+}
+.btnRessayer:hover{
+	background-color: #838892;
+}
+
+#slideapp3{
+    /*background-image:url("img/capp3.jpg");*/
+    background-repeat:no-repeat;    
+    background-position:right top;   
+}
+
+.btnExemple {
+	float: left;
+	height: 30px;
+	margin-top: 7%;
+	padding-top: 8px;
+	margin-left: 40px;
+	width: 130px;
+	font-size: 18px;
+	text-align: center;
+	color: white;
+	background-color: #495057;
+	cursor: pointer;
+
+}
+
+.btnExemple:hover{
+	background-color: #838892;
+}
+
+.btnExemple2 {
+  float: left;
+  height: 20px;
+  padding-top: 6px;
+  padding-bottom: 4px;
+  margin-left: 40px;
+  width: 112px;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  background-color: #495057;
+  cursor: pointer;
+}
+
+.btnExemple2:hover{
+	background-color: #838892;
+}
+
+.titreExemple{
+	width: 100%;
+	float: left;
+	height: 10%;
+}
+
+
+
+/* ------------------- Choix Utilisateur ------------------- */
+
+#tabUti {
+	width: 300px;
+	height: 210px;
+	background-color: #9ea2ab;
+	float: left;
+	margin-left: 37%;
+	margin-top: 90px;
+}
+
+#titreUtiContainer {
+	width: 100%;
+	height: 40px;
+	background: #495057;
+}
+
+#titreUti {
+	font-size: 24px;
+	color: white;
+	text-align: center;
+	padding-top: 5px;
+}
+
+#choixUti{
+	
+}
+
+.utilisateur{
+	width: 80%;
+	margin-left: 28px;
+	font-size: 24px;
+	text-align: center;
+	color: black;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	margin-top: 10px;
+	background: #9ea2ab;
+	cursor: pointer;
+}
+
+.utilisateur:hover{
+
+	background: #495057;
+	color: white;
+}
+
+
+/* ------------------- Progression ------------------- */
+
+#allStats{
+	width: 100%;
+	height: 85%;
+}
+
+.statCol{
+	width: 25%;
+	height: 100%;
+	float: left;
+}
+
+
+.nEx{
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.ligneProg{
+	width: 100%;
+	height: 10%;
+}
+
+.progress-bar {
+	line-height: 12px;
+	background: #495057;
+	box-shadow: none;
+	border-radius: 32px;
+	float: left;
+	height: 100%;
+	font-size: 12px;
+}
+
+.progress{
+	height: 15px;
+	background: #9EA2AB;
+	border-radius: 32px;
+	box-shadow: none;
+	width: 199px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.scorePourcent {
+	text-align: center;
+	color: white;
+	margin-top: 2px;		
+}
+/* ------------------- Application Libre ------------------- */
+
+#libre{
+    background-repeat:no-repeat;    
+    background-position:right top;   
+}
+
+#introLibre{
+	width: 100%;
+	height: 10%;
+	float: left;
+
+}
+
+#txtAppl{
+	padding-left: 20px;
+	padding-right: 20px;
+	text-align: justify;
+}
+
+#exerciceLibre{
+	width: 100%;
+	height: 85%;
+}
+
+#ligneEx{
+	width: 900px;
+	margin-left: 40px;
+	float: left;
+	margin-top: 15px;
+}
+
+.exercicel{
+	float: left;
+	margin-left: 20px;
+	width: 90%;
+	margin-top: 15px;
+	font-size: 16px;
+}
+
+.vitesse{
+	width: 25px;
+	height: 15px;
+	resize: none;
+	padding-left: 5px;
+	padding-top: 1px;
+}
+
+.listeC{
+	width: 650px;
+	height: 15px;
+	resize: none;
+}
+
+.reponsel{
+	padding-left: 10px;
+	margin-left: 20px;
+	margin-top: 10px;
+	padding-top: 10px;
+	width: 720px;
+	height: 130px;
+	float: left;
+	resize: none;
+}
+
+.btnExl {
+	float: left;
+	margin-left: 6%;
+	height: 30px;
+	margin-top: 1%;
+	padding-top: 8px;
+	width: 150px;
+	font-size: 18px;
+	text-align: center;
+	color: white;
+	background-color: #495057;
+	cursor: pointer;
+}
+
+.btnExl:hover {
+	background-color: #838892;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------- Menu Navigation ------------------- */
+
+
+.menuinte1{
+    width: 199px;
+    height: 158px;
+    background-color:#495057;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.menuinte2{
+    width: 199px;
+    height: 200px;
+    background-color:#495057;
+}
+
+.menuinte3{
+    width: 199px;
+    height: 53px;
+    background-color:#495057;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.titremenu{
+    font-family: lato;
+    font-weight: regular;
+    color: white;
+    font-size: 18px;
+    vertical-align: center;
+    padding-right: -34px;
+    padding-left: 30px;
+    padding-top: 10px;
+    cursor:default;
+}
+
+.listemenu{
+    padding-right: -34px;
+    margin-left: 30px;
+    list-style: none;
+    color: white;
+
+}
+
+.lignetitre{
+    width: 130px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+}
+
+.ligneelement{
+    width: 90px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.listelement:hover{
+    background-color: #9ea2ab;
+}
+
+.listelement{
+    font-family: lato;
+    font-weight: regular;
+    color: white;
+    font-size: 14px; 
+    margin-right: 77px;
+    cursor: pointer;
+}
+
+.pmenu{
+	margin-left: 25px;
+	margin-top: 3px;
+    font-family: lato;
+    font-weight: regular;
+    font-size: 11px;
+    color: white;
+    margin-right: 65px;
+    cursor: pointer;
+}
+
+.pmenu:hover{
+    background-color: #9ea2ab;
+}
+
+.ligneelementp{
+    width: 107px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 25px;
+    
+}
+
+#menuinte{
+	float: left;
+	width: 199px;
+	height: 100%;
+
+}
+
+#barremenu{
+	float: left;
+	width: 34px;
+	height: 100%;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+/* ------------------- Autre ? ------------------- */
+
+* {
+    margin:0px;
+    padding:0px;
+}
+
+#conteneurPrincipal {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:1024px;
+    height:600px;
+    background-color:white;
+}
+
+#titreOPI {
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:1024px;
+    height:134px;
+    font-size:4em;
+    text-align:center;
+    vertical-align:middle;
+    background-image:url("../img/header.png");
+    background-repeat:no-repeat;    
+    background-position:right top;     
+
+}
+
+#logo{
+	float: left;
+	width: 93px;
+	height: 93px;
+	margin-left: 27px;
+	margin-top: 5px;
+	cursor: pointer;
+}
+
+#menu {
+    position:absolute;
+    top:134px;
+    left:-199px;
+    width:233px;
+    height:466px;
+    z-index:1;
+    background-color:#9ea2ab;  
+    background-image:url("../img/menubar.png");
+    background-repeat:no-repeat;    
+    background-position:right top;      
+}
+
+.slide {
+    position:absolute;
+    top:134px;
+    left:34px;
+    width:990px;
+    height:466px;
+    background-color:white;
+    display:none;
+    
+}
+
+.slideA{
+	position:absolute;
+    top:134px;
+    left:34px;
+    width:990px;
+    height:466px;
+    background-color:rgba(73, 73, 73, 0.41);
+    display:none;
+}
+
+#qqoqcp{
+	float: left;
+	width: 100%;
+		margin-top: 100px;
+
+}
+
+#auteur {
+	text-align: center;
+}
+
+#reset{
+	cursor: pointer;
+}

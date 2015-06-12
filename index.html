@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Objectif Morse</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/howler.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/sMorse.js"></script>
+        
+        
+    </head>
+
+    <body>
+        <div id="conteneurPrincipal">
+	        <!-- Header et Menu de navigation -->
+            <div id="titreOPI">
+	            <div onclick='goTo("slideAccueil")' id="logo"></div>
+            </div>
+            <nav id="menu">
+	            <div id="menuinte">
+	                <div class="menuinte1">
+	                    <p class="titremenu">Introduction</p>
+	                    <hr class="lignetitre" size="1" color="white">
+	                    <ul class="listemenu">
+	                        <li class="listelement" onClick='goTo("slidechap1");'>Le morse ?</li>
+	                        <hr class="ligneelement" size="1" color="#c3c3c3">
+	                        <li class="listelement" onClick='goTo("slidechap2");'>Conception</li>
+	                        <hr class="ligneelement" size="1" color="#c3c3c3">
+	                        <li class="listelement" onClick='goTo("slidechap3");'>Exemple</li>
+	                        <hr class="ligneelement" size="1" color="#c3c3c3">
+	                    </ul>
+	                </div>
+	                <div class="menuinte2">
+	                    <p class="titremenu">Apprentissage</p>
+	                    <hr class="lignetitre" size="1" color="white">
+	                    <ul class="listemenu">
+	                        <li class="listelement" onClick='goTo("slideapp1");'>Presentation</li>
+	                        <hr class="ligneelement" size="1" color="#c3c3c3">
+	                        <li class="listelement" onClick='goTo("slideapp2");'>Exercice</li>
+	                        <hr class="ligneelement" size="1" color="#c3c3c3">
+	                        <li class="listelement" onClick='goTo("slideapp3");'>Progression</li>
+	                        <hr class="ligneelement" size="1" color="#c3c3c3">
+	                        <li class="listelement" onClick='goTo("libre");'>Exercice Libre</li>
+	                        <hr class="ligneelement" size="1" color="#c3c3c3">
+	                    </ul>
+	                </div>
+	                <div class="menuinte3">
+		                <p onclick='goTo("slideAccueil")' class="pmenu">Retour à l'accueil</p>
+		                <hr class="ligneelementp" size="1" color="#c3c3c3">
+		                <p onclick='changerUtilisateur()' class="pmenu">Changer d'utilisateur</p>
+	                </div>
+	            </div>
+	            <div id="barremenu">
+	            	
+	            </div>
+
+            </nav>
+            <!-- Choix Utilisateur et page d'accueil -->
+			<div class="slide" id="choixUti">
+				<div id="tabUti">
+					<div id="titreUtiContainer">
+						<p id="titreUti">Choisissez votre utilisateur</p>
+					</div>
+					<div id="choixUti">
+						<p class="utilisateur" onclick="setApplication(1)">Utilisateur 1</p>
+						<p class="utilisateur" onclick="setApplication(2)">Utilisateur 2</p>
+						<p class="utilisateur" onclick="setApplication(3)">Utilisateur 3</p>
+					</div>
+
+				</div>
+				<div id="qqoqcp">
+					<p id="auteur">Cette application à été conçu et réaliser par Jonathan MAURICE dans le cadre de la Licence 3 Sciences du langage, de l'Information et de la Communication, enseigné au département multimédia de L'UFR STGI à l'université de Franche-Comté</p>
+					<p id="auteur">Année universitaire 2014-2015</p>
+				</div>
+			</div>
+            <div class="slide" id="slideAccueil">
+	            <div class="containerSlide">
+		            <div id="accueilHaut">
+		            	<p class="text-align-all">Nous avons tous vu ou presque dans des films des protagonistes envoyer des messages en morse, que ce soit dans un sous-marin durant la guerre, ou depuis une île déserte de laquelle on voudrait s’échapper. Le code n’est pas dépendant du support audio et peut très bien s’adapter à des signaux visuels. On pourrait penser ce moyen de transmission obsolète au vu des technologies disponibles aujourd’hui mais il n’en n’est rien. Le morse est encore utilisé en aéronautique ou même par les scouts !
+<br/>
+<br/>
+L’idée avec cette application n’est pas de donner un cours pointu sur tous les aspects du code Morse mais plutôt apporter le minimum de connaissances et de fonctionnalités pour que les débutants comme les confirmés puissent apprendre et se perfectionner. C’est pourquoi l’application est divisée en trois grandes parties que vous pouvez retrouver ci-dessous. Ces parties sont totalement indépendantes les unes des autres et vous permettront d’organiser l’apprentissage à votre guise.	</p>
+		            </div>
+		            <div id="accueilBas">
+			            <div class="choixAcc" id="accIntro">
+				            <p class="titreAcc">INTRODUCTION</p>
+				            <p class="txtAcc">Cette introduction qui se veut simple a pour but de vous présenter l’histoire du Morse, ses origines, sa conception ainsi que son fonctionnement. Elle permettra aux débutants et aux curieux d'en apprendre un peu plus avant de se lancer dans l'apprentissage.</p>
+				            <p onClick='goTo("slidechap1");' class="btnAcc">INTRODUCTION</p>
+			            </div>
+						<div class="choixAcc" id="appIntro">
+							<p class="titreAcc">APPRENTISSAGE</p>
+				            <p class="txtAcc">Observant la méthode Koch, cette partie Apprentissage permet d'apprendre pas à pas la pratique et surtout la compréhension du code Morse. Cet apprentissage est découpé en 40 exercices dans lesquels votre attention et votre concentration sera indispensable.</p>
+				            <p onClick='goTo("slideapp1");' class="btnAcc2">APPRENTISSAGE</p>
+						</div>
+						<div class="choixAcc" id="exIntro">
+							<p class="titreAcc">EXERCICE LIBRE</p>
+				            <p class="txtAcc">Cet exercice permet aux personnes possédant déjà quelques connaissances concernant le Morse de pratique et de s'entrainer à leur guise. Dans cet exercice il est possible de régler aussi bien les vitesses de transmissions que les caractères présents dans l'émission.</p>
+				            <p onClick='goTo("libre");' class="btnAcc3">EXERCICE LIBRE</p>
+						</div>
+		            </div>
+	            </div>
+            </div>
+            <!-- Les différentes pages de la première partie -->
+            <div class="slide" id="slidechap1">
+                <div class="titreSlide">
+	                <p class="titreChap1">Le morse ?</p>
+                </div>
+                <div id="chap1Part1">
+	                <p class="txtChap1"> <img id="saMorse" src="img/chap1/morse.jpg">Les véritables origines du code morse sont aujourd’hui encore controversées : si la croyance populaire est logiquement d’attribuer le codage à Samuel Finley Breese Morse (photo ci-contre), d’autres l’attribuent à son assistant Alfred Vail. L’idée directrice de cette invention, la télégraphie, était  de transmettre des informations à distance, de manière fiable et quasi instantanée.
+</p>
+	                <p class="txtChap1">C’est en 1832 que le code fut inventé, mais bien souvent, lorsqu’une nouvelle invention est présentée, il est difficile de convaincre de son utilité et de sa viabilité. C’est seulement en 1844 que le premier message morse à longue distance à été envoyé entre Washington et Baltimore (256 km de distance). Malgré tout, ce ne sera pas le gouvernement qui développera cette technologie révolutionnaire mais des entreprises privées.</p>
+                </div>
+                <div id="chap1Part2">
+                	<p class="txtChap1"> <img id="appareil" src="img/chap1/appareil.jpg">L’image que l’on peut voir ci-contre est un manipulateur qui permet d’envoyer des signaux par l’intermédiaire du courant électrique; son fonctionnement pourrait être vulgarisé en le comparant à un interrupteur électrique. Aujourd’hui, le code Morse est « officiellement mort » depuis 1999 dans le sens ou il n’est plus utilisé par des professionnels pour communiquer. </p>
+                	<p class="txtChap1">Mort ? Pas totalement puisque ce codage est encore utilisé dans différents domaines. Dans l’aéronautique par exemple, des radiobalises émettent de manière automatisée leur identifiant en Morse. Certains radioamateurs continuent de communiquer en Morse, de même que la pratique du code Morse est encore enseignée et utilisée chez les scouts. Les plongeurs communiquent également en Morse par l’intermédiaire de signaux visuels.</p>
+                </div>
+                <div class="divBtn">
+                	<p onClick='goTo("slidechap2")' class="btnSuivant">CHAPITRE SUIVANT</p>
+                </div>
+			</div>
+            <div class="slide" id="slidechap2">
+                <div class="titreSlide">
+	                <p class="titreChap1">Conception</p>
+                </div>
+                <div id="chap2Part1">
+                	<p class="txtChap1"> <img id="cMorse" src="img/chap1/code_morse.jpg">Le code utilise seulement deux caractères appelés « brève » et « longue » ou « point » et « trait ». La différence entre ces deux caractères ne repose que sur la durée d’émission de chacun d’eux, c’est ce qui fait que le Morse est un code relativement universel pouvant être utilisé via différents supports. La conception de l’alphabet est simple : à chacun des caractères que l’on souhaite encoder, on attribue une série de points et de traits de manière unique. Il existe également des indicatifs qui permettent de signaler le début ou la fin d’une transmission, ou bien encore une erreur. Tout cela dans le but de communiquer de manière rapide et efficace. Il faut cependant garder en tête que la définition de chacun des caractères ne s’est pas fait par hasard, au bon vouloir de l’inventeur. Le codage est une science qui ne date pas de l’invention du Morse.</p>
+                </div>
+                <div id="chap2Part2">
+                	<p class="txtChap1"> <img id="aMorse" src="img/chap1/arbre_morse.jpg">Chacun des caractères est encodé selon la probabilité avec laquelle il risque d’apparaitre au sein d’un message. Dans le cas du morse, c’est un anglophone qui a inventé ce codage. Les lettres qui apparaissent le plus souvent au sein d’un message comme la lettre e ou la lettre t (the) auront une traduction en morse courte. À l’inverse, un caractère peu utilisé aura un code en Morse qui sera beaucoup plus long, la lettre Q par exemple. Cela permet de globalement diminuer les temps de transmission des messages. Afin de mieux visualiser ce système d’encodage, on peut le représenter sous forme d’arbre (à droite). Aujourd’hui encore, on retrouve cette méthode de compression de l’information, car la taille de cette dernière est réduite sans qu’elle perde sa signification.</p>
+                </div>
+                <div class="divBtn">
+                	<p onClick='goTo("slidechap3")' class="btnSuivant">CHAPITRE SUIVANT</p>
+                	<p onClick='goTo("slidechap1")' class="btnPrecedent">CHAPITRE PRECEDENT</p>
+                </div>
+            </div>
+            <div class="slide" id="slidechap3">
+                <div class="titreSlide">
+	                <p class="titreChap1">Exemple de Transmission</p>
+                </div>
+                <div id="chap3Part1">
+                	<h2 class="titreH2Chap1">Message en clair : </h2> 
+                	<p class="exTr">ceci est un test</p>
+					<br>
+					<br>
+                	<h2 class="titreH2Chap1">Message en morse : </h2>
+					<p class="exTrMorse">ceci est un test</p>
+                </div>
+                <div id="chap3Part2">
+                	<h2 class="titreH2Chap1 audioPart">Transcription audio :   </h2>
+					<div onclick="creaExemple('ex')" class="btnExemple2">
+	                	<p>Jouer l'exemple</p>
+					</div>						
+					<div onclick="stop()"class="btnExemple2">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="chap3Part3">
+                	<h2 class="titreH2Chap1">La vitesse de transmission</h2>
+                	<br>
+					<p class="txtPart3">La vitesse de transmission est une partie extrêmement importante lors de l’apprentissage du morse. Avant tout, décomposons les différents éléments du morse. Par convention, un point correspond à un élément et un trait correspond à trois fois la durée d’un point, soit trois éléments.  La durée entre 2 caractères correspond à un silence d’une durée de 3 éléments. L’espace entre deux mots est d’une durée de 7 éléments. Une fois ceci établi, entrons dans le vif du sujet. </p>
+					<p class="txtPart3">L’exemple ci-dessus est transmis avec une vitesse de 20 mots par minute. Les mots par minute (Word Per Minute en anglais ou WPM) représentent la mesure d’une vitesse de transmission en Morse. Le WPM se calcule sur la base du mot PARIS. Si on envoie le mot Paris cinq fois en 1 minute (soit 5 WPM), cela revient à avoir envoyé 250 éléments en 60 secondes. 
+Si l’on effectue la division 60/250 on obtient une durée d’élément équivalant à 240 millisecondes (ms). Plus la vitesse de transmission augmente, plus la durée d’un élément diminue.</p>
+					<p class="txtPart3">À titre d’exemple, une transmission à 13 WPM (vitesse d'une transmission classique) correspond à un élément d’une durée d’environ 92 millisecondes.  </p>
+                </div>
+                <div class="divBtn">
+                	<p onClick='goTo("slideapp1")' class="btnSuivant">PARTIE SUIVANTE</p>
+                	<p onClick='goTo("slidechap2")' class="btnPrecedent">CHAPITRE PRECEDENT</p>
+                </div>
+
+                
+            </div>
+            <!-- Page d'accueil du processus d'apprentissage -->
+            <div class="slide" id="slideapp1">
+                <div class="titreSlide"><p class="titreChap1">Présentation</p></div>
+                <div id="app1Part1">
+                	<h2 class="titreH2app1">La Méthode Koch</h2>
+                	<p id="txtApp1">Cette méthode a été imaginée par un psychologue allemand aux environs de 1930. Son objectif est de nous faire apprendre le code Morse en nous appuyant sur nos réflexes (reconnaissance instantanée des caractères). Une fois que le caractère est intégré dans notre mémoire inconsciente, nous n’avons plus besoin d’y réfléchir. Cela pourrait être comparé aux réflexes que nous avons tous les jours, en voiture par exemple, si un obstacle survient devant nous, nous n’avons pas le temps de réfléchir et nous écrasons les freins par réflexe. L’idée ici est d’avoir le même comportement inconscient lorsqu’il s’agit de reconnaitre des caractères en Morse. 
+                	</p>
+                </div>
+                <div id="app1Part2">
+                	<h2 class="titreH2app1">Déroulement de l'apprentissage</h2>
+                	<p id="txtApp1">Pour l’apprentissage de cette méthode, vous aurez à décoder un message long d’une centaine de caractères découpé en groupes de cinq. Le motif musical des lettres sera transmis à une fréquence de 20 WPM mais l’espacement entre les caractères et les mots sera plus lent : 12 WPM. Le premier exercice présentera 2 caractères. Lorsque vous aurez atteint un pourcentage de réussite de 95% ou plus, vous serez alors autorisé à passer à l’exercice suivant. Chaque exercice propose une série de 20 mots possédant 5 caractères chacun.</p>
+                </div>
+                <div id="app1Part3">
+                	<h2 class="titreH2app1">Conseil</h2>
+                	<p id="txtApp1">L’apprentissage du Morse est un exercice qui peut s’avérer long et laborieux. La vitesse d’apprentissage varie d’une personne à l’autre, mais pas de découragement si vous avez l’impression de ne pas progresser. Pour un apprentissage efficace, il faut pratiquer par courtes sessions (1h environ) en faisant des pauses. 
+Si la vitesse des exercices est trop élevée, vous pouvez utiliser l’exercice libre qui repose sur le même principe, mais dans lequel vous pouvez régler les différentes vitesses de transmission.
+                	</p>
+                </div>
+                <div class="divBtn">
+                	<p onClick='goTo("slideapp2")' class="btnCommencer">COMMENCER</p>
+                </div>
+                
+            </div>
+			<!-- Les 40 Exercices de l'apprentissage -->
+            <div class ="slide" id="ex1">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 1/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : K</h2>
+
+	                </div>
+	                <div onclick="creaExemple(0)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : M</h2>
+
+	                </div>
+	                <div onclick="creaExemple(1)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()"class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m </p>
+            	
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse1" name="reponse" form="formRep" placeholder="Saisissez votre réponse ici..."></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse1").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex2">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 2/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : U</h2>
+	                </div>
+	                <div onclick="creaExemple(2)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u </p>            	
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse2" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse2").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex3">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 3/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : R</h2>
+	                </div>
+	                <div onclick="creaExemple(3)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r </p>
+            	
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse3" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse3").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex4">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 4/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : E</h2>
+	                </div>
+	                <div onclick="creaExemple(4)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e </p>
+            	
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse4" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse4").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex5">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 5/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : S</h2>
+	                </div>
+	                <div onclick="creaExemple(5)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse5" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse5").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex6">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 6/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : N</h2>
+	                </div>
+	                <div onclick="creaExemple(6)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse6" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse6").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex7">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 7/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : A</h2>
+	                </div>
+	                <div onclick="creaExemple(7)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse7" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse7").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex8">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 8/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : P</h2>
+	                </div>
+	                <div onclick="creaExemple(8)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse8" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse8").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex9">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 9/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : T</h2>
+	                </div>
+	                <div onclick="creaExemple(9)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse9" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse9").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex10">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 10/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : L</h2>
+	                </div>
+	                <div onclick="creaExemple(10)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse10" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse10").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex11">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 11/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : W</h2>
+	                </div>
+	                <div onclick="creaExemple(11)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse11" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse11").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex12">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 12/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : I</h2>
+	                </div>
+	                <div onclick="creaExemple(12)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse12" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse12").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex13">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 13/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : .</h2>
+	                </div>
+	                <div onclick="creaExemple(13)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse13" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse13").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex14">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 14/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : J</h2>
+	                </div>
+	                <div onclick="creaExemple(14)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse14" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse14").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex15">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 15/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : Z</h2>
+	                </div>
+	                <div onclick="creaExemple(15)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse15" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse15").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex16">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 16/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : =</h2>
+	                </div>
+	                <div onclick="creaExemple(16)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse16" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse16").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex17">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 17/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : F</h2>
+	                </div>
+	                <div onclick="creaExemple(17)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse17" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse17").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex18">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 18/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : O</h2>
+	                </div>
+	                <div onclick="creaExemple(18)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse18" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse18").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex19">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 19/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : Y</h2>
+	                </div>
+	                <div onclick="creaExemple(19)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse19" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse19").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex20">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 20/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : ,</h2>
+	                </div>
+	                <div onclick="creaExemple(20)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse20" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse20").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex21">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 21/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : V</h2>
+	                </div>
+	                <div onclick="creaExemple(21)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse21" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse21").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex22">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 22/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : G</h2>
+	                </div>
+	                <div onclick="creaExemple(22)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse22" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse22").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex23">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 23/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 5</h2>
+	                </div>
+	                <div onclick="creaExemple(23)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse23" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse23").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex24">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 24/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : /</h2>
+	                </div>
+	                <div onclick="creaExemple(24)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse24" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse24").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex25">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 25/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : Q</h2>
+	                </div>
+	                <div onclick="creaExemple(25)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse25" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse25").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex26">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 26/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 9</h2>
+	                </div>
+	                <div onclick="creaExemple(26)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse26" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse26").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex27">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 27/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 2</h2>
+	                </div>
+	                <div onclick="creaExemple(27)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse27" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse27").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex28">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 28/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : H</h2>
+	                </div>
+	                <div onclick="creaExemple(28)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse28" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse28").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex29">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 29/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 3</h2>
+	                </div>
+	                <div onclick="creaExemple(29)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse29" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse29").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex30">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 30/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 8</h2>
+	                </div>
+	                <div onclick="creaExemple(30)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse30" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse30").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex31">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 31/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : B</h2>
+	                </div>
+	                <div onclick="creaExemple(31)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse31" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse31").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex32">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 32/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : ?</h2>
+	                </div>
+	                <div onclick="creaExemple(32)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? </p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse32" name="reponse" placeholder="Saisissez votre réponse ici..." form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse32").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex33">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 33/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 4</h2>
+	                </div>
+	                <div onclick="creaExemple(33)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? 4</p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse33" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse33").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex34">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 34/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 7</h2>
+	                </div>
+	                <div onclick="creaExemple(34)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? 4 7</p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse34" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse34").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex35">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 35/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : C</h2>
+	                </div>
+	                <div onclick="creaExemple(35)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? 4 7 c</p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse35" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse35").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex36">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 36/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 1</h2>
+	                </div>
+	                <div onclick="creaExemple(36)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? 4 7 c 1</p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse36" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse36").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex37">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 37/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : D</h2>
+	                </div>
+	                <div onclick="creaExemple(37)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? 4 7 c 1 d</p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse37" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse37").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex38">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 38/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 6</h2>
+	                </div>
+	                <div onclick="creaExemple(38)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? 4 7 c 1 d 6</p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse38" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse38").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex39">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 39/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : 0</h2>
+	                </div>
+	                <div onclick="creaExemple(39)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? 4 7 c 1 d 6 0</p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse39" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse39").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <div class ="slide" id="ex40">
+	            <div class="titreSlide"><p class="titreChap1">Exercice 40/40</p></div>
+                <div class="appAudio1">
+	                <div class="titreExemple">
+						<h2 class="titreH2app1">Caractère : X</h2>
+	                </div>
+	                <div onclick="creaExemple(40)" class="btnExemple">
+	                	<p>Jouer l'exemple</p>
+	                </div>
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+                </div>
+                <div id="app2Part1">
+                	<h2 class="titreH2app1">Exercice</h2>
+                	<p id="txtApp1">Vous devez dans un premier temps écouter le(s) exemple(s) audio, les assimiler afin d’être capable de les reconnaitre. Une fois que vous pensez être prêt, vous pouvez lancer l’exercice.
+ À chaque fois que vous cliquerez sur « jouer l’exercice », une chaine de caractères sera générée aléatoirement. Cela signifie qu’aucun exercice ne se ressemble, pas la peine d’espérer pouvoir le mémoriser ! 
+Il est également important de séparer les séries de cinq caractères par un espace, sans quoi les résultats seront faussés (ex : kmmkk kmkkm etc). Une fois que vous avez terminé l’exercice, cliquez sur correction qui indiquera alors votre pourcentage de réussite. 
+</p>
+                	<p id="txtApp2">rappel des caractères connu : k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? 4 7 c 1 d 6 0 x</p>
+            </div>
+                <div id="app2Part2">
+					<div onclick="creaEx()" class="btnExemple">
+	                	<p>Jouer l'exercice</p>
+	                </div>
+	                
+					<div onclick="stop()" class="btnExemple">
+	                	<p>Stop</p>
+	                </div>
+
+                </div>
+                <div id="app2Part3">
+                	<form id="formRep" action="index.html" method="post" accept-charset="utf-8">
+	                	
+                		<textarea class ="reponse" id="reponse40" placeholder="Saisissez votre réponse ici..." name="reponse" form="formRep"></textarea>
+                		
+					    <div  name="valider" id="validation" onclick='apprentissage(document.getElementById("reponse40").value);' class="btnValider">  
+					    	<p>Correction</p>
+					    </div>
+					                 		
+                	</form>
+                </div>
+	        </div>
+            <!-- Les pop-up de réussite ou d'échec de l'exercice -->
+            <div class ="slideA" id="slideAok">
+            	<div class="resultat">
+	            	<div id="titreFenetre">
+	            		<p class="titreFenetre">Résultat</p>
+	            	</div>
+	            	<div id="contenuFenetre">
+						<h2 class="statutEx">Bravo !</h2>
+	            		<p class="contenuFenetre">Votre score est de : <span id="sp_score"></span>% !</p>
+	            		<div class="btnRessayer" onClick='exSuivant()'><p>Exercice suivant</p></div>
+	            	</div>
+
+            	</div>
+            </div>
+            <div class ="slideA" id="slideAkok">
+            	<div class="resultat">
+	            	<div id="titreFenetre">
+	            		<p class="titreFenetre">Résultat</p>
+	            	</div>
+	            	<div id="contenuFenetre">
+	            		<h2 class="statutEx">Dommage !</h2>
+	            		<p class="contenuFenetre">Vous avez fait un score total de : <span id="sp_score2"></span>% !</p>
+	            		<div class="btnRessayer"onClick='retourApp()'><p>Ressayer</p></div>
+	            	</div>
+            	</div>
+            </div>
+            <div class ="slideA" id="slideAfin">
+            	<div class="resultat">
+	            	<div id="titreFenetre">
+	            		<p class="titreFenetre">Résultat</p>
+	            	</div>
+	            	<div id="contenuFenetre">
+	            		<h2 class="statutEx">Félécition !</h2>
+	            		<p class="contenuFenetre">Vous avez fait un score total de : <span id="sp_scoref"></span>% !</p>
+	            		<div class="btnRessayer"onClick='retourAppf()'><p>Ressayer</p></div>
+	            	</div>
+            	</div>
+            </div>
+            <!-- Page qui affiche la progression de l'apprentissage -->
+            <div class="slide" id="slideapp3">
+                <div class="titreSlide">
+	                <p class="titreChap1">Progression</p>
+	                <p id="reset" onclick="resetUtilisateur()">Réinitialiser l'utilisateur</p>
+                </div>
+                <div id="allStats">
+                	<div class="statCol">
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 1 : </p>
+                			<div onclick='goToEx(1)' class="progress">
+				            	<div id="barre1" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 2 : </p>
+                			<div onclick='goToEx(2)' class="progress">
+				            	<div id="barre2" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 3 : </p>
+                			<div onclick='goToEx(3)' class="progress">
+				            	<div id="barre3" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 4 : </p>
+                			<div onclick='goToEx(4)' class="progress">
+				            	<div id="barre4" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 5 : </p>
+                			<div onclick='goToEx(5)' class="progress">
+				            	<div id="barre5" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 6 : </p>
+                			<div onclick='goToEx(6)' class="progress">
+				            	<div id="barre6" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 7 : </p>
+                			<div onclick='goToEx(7)' class="progress">
+				            	<div id="barre7" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 8 : </p>
+                			<div onclick='goToEx(8)' class="progress">
+				            	<div id="barre8" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 9 : </p>
+                			<div onclick='goToEx(9)' class="progress">
+				            	<div id="barre9" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 10 : </p>
+                			<div onclick='goToEx(10)' class="progress">
+				            	<div id="barre10" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                	</div>
+                	<div class="statCol">
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 11 : </p>
+                			<div onclick='goToEx(11)' class="progress">
+				            	<div id="barre11" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 12 : </p>
+                			<div onclick='goToEx(12)' class="progress">
+				            	<div id="barre12" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 13 : </p>
+                			<div onclick='goToEx(13)' class="progress">
+				            	<div id="barre13" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 14 : </p>
+                			<div onclick='goToEx(14)' class="progress">
+				            	<div id="barre14" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 15 : </p>
+                			<div onclick='goToEx(15)' class="progress">
+				            	<div id="barre15" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 16 : </p>
+                			<div onclick='goToEx(16)' class="progress">
+				            	<div id="barre16" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 17 : </p>
+                			<div onclick='goToEx(17)' class="progress">
+				            	<div id="barre17" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 18 : </p>
+                			<div onclick='goToEx(18)' class="progress">
+				            	<div id="barre18" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 19 : </p>
+                			<div onclick='goToEx(19)' class="progress">
+				            	<div id="barre19" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 20 : </p>
+                			<div onclick='goToEx(20)' class="progress">
+				            	<div id="barre20" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                	</div>
+                	<div class="statCol">
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 21 : </p>
+                			<div onclick='goToEx(21)' class="progress">
+				            	<div id="barre21" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 22 : </p>
+                			<div onclick='goToEx(22)' class="progress">
+				            	<div id="barre22" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 23 : </p>
+                			<div onclick='goToEx(23)' class="progress">
+				            	<div id="barre23" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 24 : </p>
+                			<div onclick='goToEx(24)' class="progress">
+				            	<div id="barre24" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 25 : </p>
+                			<div onclick='goToEx(25)' class="progress">
+				            	<div id="barre25" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 26 : </p>
+                			<div onclick='goToEx(26)' class="progress">
+				            	<div id="barre26" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 27 : </p>
+                			<div onclick='goToEx(27)' class="progress">
+				            	<div id="barre27" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 28 : </p>
+                			<div  onclick='goToEx(28)' class="progress">
+				            	<div id="barre28" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 29 : </p>
+                			<div onclick='goToEx(29)' class="progress">
+				            	<div id="barre29" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 30 : </p>
+                			<div onclick='goToEx(30)' class="progress">
+				            	<div id="barre30" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                	</div>
+                	<div class="statCol">
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 31 : </p>
+                			<div onclick='goToEx(31)' class="progress">
+				            	<div id="barre31" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 32 : </p>
+                			<div onclick='goToEx(32)' class="progress">
+				            	<div id="barre32" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 33 : </p>
+                			<div onclick='goToEx(33)' class="progress">
+				            	<div id="barre33" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 34 : </p>
+                			<div onclick='goToEx(34)' class="progress">
+				            	<div id="barre34" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 35 : </p>
+                			<div onclick='goToEx(35)' class="progress">
+				            	<div id="barre35" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 36 : </p>
+                			<div onclick='goToEx(36)' class="progress">
+				            	<div id="barre36" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 37 : </p>
+                			<div onclick='goToEx(37)' class="progress">
+				            	<div id="barre37" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 38 : </p>
+                			<div onclick='goToEx(38)' class="progress">
+				            	<div id="barre38" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 39 : </p>
+                			<div onclick='goToEx(39)' class="progress">
+				            	<div id="barre39" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                		<div class="ligneProg">
+	                		<p class="nEx">exercice 40 : </p>
+                			<div onclick='goToEx(40)' class="progress">
+				            	<div id="barre40" class="progress-bar" style="width: 0%;"><p class="scorePourcent"></p></div>
+							 </div>
+                		</div>
+                	</div>
+                </div>
+            </div>
+            <!-- L'exercice modulable -->
+            <div class="slide" id="libre">
+                <div class="titreSlide">
+	                <p class="titreChap1">Exercice Libre</p>
+                </div>
+                <div id="introLibre">
+                	<p id="txtAppl">Cet exercice va générer une série de caractère (100 au total) divisés en groupe de 5. Il est possible de préciser la vitesse de transmission des caractère (vitesse à laquelle les sons vont se jouer) ainsi que la vitesse de transmission globale (entre chaque caractère et chaque mot). Il est bien important de saisir la réponse sous cette forme : kmmkk kkkkm mmkmm… Sans quoi l’exercice ne pourra pas être correctement corriger. Bon courage !</p>
+                </div>
+                <div id="exerciceLibre">
+                	<hr id="ligneEx" size="2" color="#495057">
+                	<p class="exercicel">Vitesse de transmission des caractères : <textarea id="wpm1" class="vitesse">20</textarea> wpm</p>
+                	<p class="exercicel">Vitesse de transmission global : <textarea id="wpm2" class="vitesse">20</textarea> wpm</p>
+                	<p class="exercicel">Saisissez ici une liste de caractère. Cette liste doit comprendre les lettres de A à Z, les chiffres de 0 à 9 ainsi que les caractères spéciaux ". = , / ?".   Chacun des caractère de la liste devra être séparé par un espace, sans quoi la liste ne sera pas valide.</p>
+                	<p class="exercicel">Liste de caractère : <textarea id="liste" value="" class="listeC">k m u r e s n a p t l w i . j z = f o y , v g 5 / q 9 2 h 3 8 b ? 4 7 c 1 d 6 0 x</textarea> </p>
+                	
+                	<textarea class ="reponsel" id="reponsel" name="reponse" form="formRep" placeholder="Saisissez votre réponse ici..."></textarea>
+                	<div  name="valider" id="validation" onclick='creaExl(document.getElementById("wpm1").value, document.getElementById("wpm2").value, document.getElementById("liste").value);' class="btnExl">  
+					    	<p>Lancer l'exercice</p>
+					</div>
+					<div  name="valider" id="validation" onclick='stop();' class="btnExl">  
+					    	<p>Arrêter l'exercice</p>
+					</div>
+                	<div  name="valider" id="validation" onclick='exerciceLibre(document.getElementById("reponsel").value);' class="btnExl">  
+					    	<p>Correction</p>
+					</div>
+                </div>
+            </div>
+            <div class ="slideA" id="slideAr">
+            	<div class="resultat">
+	            	<div id="titreFenetre">
+	            		<p class="titreFenetre">Résultat</p>
+	            	</div>
+	            	<div id="contenuFenetre">
+						<h2 class="statutEx">Bravo !</h2>
+	            		<p class="contenuFenetre">Votre score est de : <span id="sp_score3"></span>% !</p>
+	            		<div class="btnRessayer"onClick='retourApp2()'><p>Retour à l'exercice</p></div>
+	            	</div>
+
+            	</div>
+            </div>
+        </div>
+    </body>
+</html>
+
